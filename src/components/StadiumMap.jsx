@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, Circle, useMap } from 'react-leaflet';
+import React, { useState } from 'react';
+import { MapContainer, TileLayer, Marker, Popup, Circle } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
@@ -91,7 +91,6 @@ const FACILITIES = {
 
 // ─── Map event handler for scenario overlays ───
 const ScenarioOverlays = ({ activeScenarios }) => {
-  const map = useMap();
 
   return (
     <>
