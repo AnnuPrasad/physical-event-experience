@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import StadiumMap from './StadiumMap';
 import MasterCommandHub from './MasterCommandHub';
-import Sidebar from './Sidebar';
 import HealthRiskHUB from './HealthRiskHUB';
 import ReunificationHUB from './ReunificationHUB';
 
-const OrganizerDashboard = ({ profile }) => {
+const OrganizerDashboard = ({ profile, onLogout }) => {
   const [activeScenarios, setActiveScenarios] = useState({
     emergency: false,
     congestion: false,
@@ -21,8 +20,9 @@ const OrganizerDashboard = ({ profile }) => {
     <div className="app-container fade-in">
       {/* HUD Header */}
       <header className="hud-header glass-panel">
-        <div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
           <h1>AEGIS<span style={{ color: 'var(--text-main)' }}>.COMMAND</span></h1>
+          <button className="logout-btn" onClick={onLogout}>← Log Out</button>
         </div>
         
         <div style={{ display: 'flex', gap: '30px', alignItems: 'center' }}>

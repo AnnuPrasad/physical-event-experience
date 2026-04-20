@@ -17,7 +17,7 @@ function App() {
   if (!session) {
     return (
       <div className="auth-wrapper">
-        <div style={{ position: 'absolute', top: '40px', textAlign: 'center' }}>
+        <div style={{ textAlign: 'center', marginBottom: '32px' }}>
           <h1 style={{ fontSize: '2rem', fontWeight: '900', letterSpacing: '-0.05em', color: 'var(--text-main)' }}>
             AEGIS<span style={{ color: 'var(--accent)' }}>.01</span>
           </h1>
@@ -28,7 +28,7 @@ function App() {
 
         <AuthPortal onAuthSuccess={handleAuthSuccess} />
 
-        <footer style={{ position: 'absolute', bottom: '30px', fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: '500' }}>
+        <footer style={{ marginTop: '32px', fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: '500' }}>
           Protocol v2.5.0-STABLE | Cloud Sync: <span style={{ color: 'var(--success)' }}>Active</span>
         </footer>
       </div>
@@ -37,26 +37,10 @@ function App() {
 
   return (
     <div style={{ height: '100vh', width: '100vw', background: 'var(--bg-main)' }}>
-      <button 
-        className="secondary-btn" 
-        style={{ 
-          position: 'absolute', 
-          top: '20px', 
-          left: '20px', 
-          zIndex: 1000, 
-          padding: '8px 16px', 
-          borderRadius: 'var(--radius-md)',
-          fontSize: '0.75rem',
-          fontWeight: '600'
-        }} 
-        onClick={handleLogout}
-      >
-        ← Log Out
-      </button>
       {session.role === 'user' ? (
-        <UserDashboard profile={session} />
+        <UserDashboard profile={session} onLogout={handleLogout} />
       ) : (
-        <OrganizerDashboard profile={session} />
+        <OrganizerDashboard profile={session} onLogout={handleLogout} />
       )}
     </div>
   );
